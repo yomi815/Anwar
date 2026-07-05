@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ترفيه وألعاب | أنوار</title>
+<meta name="description" content="كويز ديني، لعبة ذاكرة، نكتة ونصيحة يومية تتجدد في كل زيارة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">🏮 أنوار</a>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="phenomena.html">غيبيات وتأملات</a>
+      <a href="quran.html">القرآن الكريم</a>
+      <a href="figures.html">شخصيات إسلامية</a>
+      <a href="questions.html">أسئلة عميقة</a>
+      <a href="fun.html" class="active">ترفيه وألعاب</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="pattern-overlay"></div>
+  <div class="page-header-content">
+    <p class="eyebrow">استراحة ممتعة</p>
+    <h1>ترفيه وألعاب</h1>
+    <p class="page-sub">نصيحة ونكتة تتجدد في كل زيارة، وكويز معلومات إسلامية، ولعبة ذاكرة ممتعة.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- نصيحة اليوم ونكتة -->
+  <section class="section">
+    <div class="tip-joke-grid">
+      <div class="tip-card">
+        <p class="tip-icon">💡</p>
+        <h3>نصيحة لك</h3>
+        <p class="tip-text" id="adviceBox">...</p>
+        <button class="btn btn-secondary" id="adviceBtn">نصيحة أخرى 🔄</button>
+      </div>
+      <div class="tip-card joke-card">
+        <p class="tip-icon">😄</p>
+        <h3>ابتسم قليلاً</h3>
+        <p class="tip-text" id="jokeBox">...</p>
+        <button class="btn btn-secondary" id="jokeBtn">نكتة أخرى 🔄</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- كويز معلومات إسلامية -->
+  <section class="section quiz-section">
+    <div class="section-head">
+      <p class="eyebrow">اختبر معلوماتك</p>
+      <h2>كويز إسلامي سريع</h2>
+    </div>
+
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-top">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <div class="quiz-score">⭐ <span id="quizScore">0</span></div>
+      </div>
+
+      <div id="quizBody">
+        <p class="quiz-q-count" id="quizQCount">السؤال 1 من 10</p>
+        <h3 class="quiz-question" id="quizQuestion">...</h3>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+
+      <div id="quizEnd" class="quiz-end hidden">
+        <div class="quiz-end-icon">🏆</div>
+        <h3>انتهى الاختبار!</h3>
+        <p id="quizEndMsg"></p>
+        <button class="btn btn-primary" id="quizRestart">حاول مرة أخرى 🔁</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- لعبة الذاكرة -->
+  <section class="section game-section">
+    <div class="section-head">
+      <p class="eyebrow">لعبة الذاكرة</p>
+      <h2>طابق البطاقات المتشابهة</h2>
+      <p class="section-sub">اضغط على بطاقتين للكشف عنهما، وحاول إيجاد كل الأزواج المتطابقة</p>
+    </div>
+
+    <div class="memory-wrap">
+      <div class="memory-board" id="memoryBoard"></div>
+      <div class="memory-win hidden" id="memoryWin">🎉 أحسنت! لقد طابقت كل البطاقات بنجاح</div>
+      <div class="game-actions">
+        <button class="btn btn-ghost" id="memoryReset">إعادة اللعبة 🔄</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="feedback-widget" id="feedbackBox">
+    <p class="feedback-question">هل أعجبك موقعي؟</p>
+    <div class="feedback-buttons">
+      <button class="btn btn-primary" id="feedbackYes">نعم 😍</button>
+      <button class="btn btn-ghost" id="feedbackNo">لا 😅</button>
+    </div>
+    <p class="feedback-msg" id="feedbackMsg"></p>
+  </div>
+  <p class="footer-credit">تصميم: <strong>yomii mohamed</strong></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

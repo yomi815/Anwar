@@ -1,0 +1,544 @@
+/* =========================================================
+   موقع "أنوار" — التنسيقات المشتركة لكل الصفحات
+   ========================================================= */
+
+:root{
+  --emerald-950:#06211f;
+  --emerald-900:#0b3d3a;
+  --emerald-800:#124d49;
+  --emerald-700:#1a655f;
+  --gold:#c9a24b;
+  --gold-light:#e6c883;
+  --maroon:#7c2d3f;
+  --maroon-light:#a6455b;
+  --parchment:#f4ecd8;
+  --parchment-dark:#e8dcc0;
+  --ink:#241d12;
+  --ink-soft:#5c5442;
+
+  --font-display:"Amiri", serif;
+  --font-body:"Tajawal", sans-serif;
+
+  --radius-lg:26px;
+  --radius-md:18px;
+  --radius-sm:12px;
+  --shadow-soft:0 14px 34px rgba(6,33,31,.16);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--parchment);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--font-display); margin:0; font-weight:700;}
+p{margin:0;}
+.hidden{display:none !important;}
+a{color:inherit; text-decoration:none;}
+button{font-family:var(--font-body); cursor:pointer;}
+
+a:focus-visible, button:focus-visible, textarea:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+}
+
+/* ===================== زخرفة نجمية مشتركة (نمط هندسي إسلامي خفيف) ===================== */
+.pattern-overlay{
+  position:absolute;
+  inset:0;
+  opacity:.14;
+  background-image:
+    radial-gradient(circle, var(--gold) 1.5px, transparent 1.6px);
+  background-size:30px 30px;
+  pointer-events:none;
+}
+.divider-star{
+  text-align:center;
+  color:var(--gold);
+  font-size:1.4rem;
+  margin:14px 0;
+}
+
+/* ===================== أزرار ===================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:13px 28px;
+  border-radius:999px;
+  border:none;
+  font-size:1rem;
+  font-weight:700;
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn-primary{
+  background:linear-gradient(135deg, var(--gold-light), var(--gold));
+  color:#3a2705;
+  box-shadow:0 10px 22px rgba(201,162,75,.4);
+}
+.btn-secondary{
+  background:linear-gradient(135deg, var(--emerald-700), var(--emerald-900));
+  color:var(--parchment);
+  box-shadow:0 10px 22px rgba(11,61,58,.35);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--ink-soft);
+  border:2px solid var(--parchment-dark);
+}
+.btn-ghost-sm{
+  background:transparent;
+  color:var(--emerald-800);
+  border:2px solid var(--emerald-700);
+  padding:8px 18px;
+  border-radius:999px;
+  font-size:.88rem;
+  font-weight:700;
+}
+
+/* ===================== شريط التنقل ===================== */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--emerald-950);
+  border-bottom:1px solid rgba(230,200,131,.2);
+}
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.nav-logo{
+  font-family:var(--font-display);
+  color:var(--gold-light);
+  font-size:1.3rem;
+  font-weight:700;
+}
+.nav-links{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.nav-links a{
+  color:var(--parchment);
+  font-weight:700;
+  font-size:.9rem;
+  opacity:.78;
+  padding-bottom:3px;
+  border-bottom:2px solid transparent;
+  transition:opacity .15s, border-color .15s;
+}
+.nav-links a:hover{ opacity:1; }
+.nav-links a.active{ opacity:1; color:var(--gold-light); border-color:var(--gold); }
+
+/* ===================== قسم البداية (الصفحة الرئيسية) ===================== */
+.hero{
+  position:relative;
+  padding:90px 20px 80px;
+  text-align:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% -10%, var(--emerald-700) 0%, var(--emerald-900) 55%, var(--emerald-950) 100%);
+}
+.stars{ position:absolute; inset:0; }
+.stars span{
+  position:absolute;
+  width:2px; height:2px;
+  background:var(--gold-light);
+  border-radius:50%;
+  opacity:.7;
+  animation:twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle{ 0%,100%{opacity:.15;} 50%{opacity:.9;} }
+.hero-content{ position:relative; z-index:2; max-width:700px; margin:0 auto; }
+.lantern{
+  font-size:3.4rem;
+  margin-bottom:6px;
+  filter:drop-shadow(0 0 22px rgba(230,200,131,.6));
+  animation:sway 5s ease-in-out infinite;
+}
+@keyframes sway{ 0%,100%{ transform:rotate(-4deg); } 50%{ transform:rotate(4deg); } }
+.eyebrow{ color:var(--gold-light); letter-spacing:.08em; font-weight:700; font-size:.85rem; margin-bottom:8px; }
+.hero h1{
+  color:var(--parchment);
+  font-size:clamp(2.8rem, 8vw, 4.6rem);
+  margin-bottom:16px;
+}
+.hero-sub{ color:#cfe3df; font-size:1.1rem; line-height:1.9; }
+
+/* ===================== ترويسة الصفحات الداخلية ===================== */
+.page-header{
+  position:relative;
+  padding:64px 20px 56px;
+  text-align:center;
+  background:radial-gradient(ellipse at 50% -10%, var(--emerald-700) 0%, var(--emerald-900) 55%, var(--emerald-950) 100%);
+  overflow:hidden;
+}
+.page-header-content{ position:relative; z-index:2; max-width:720px; margin:0 auto; }
+.page-header h1{ color:var(--parchment); font-size:clamp(2.2rem, 6vw, 3.2rem); margin:6px 0 16px; }
+.page-sub{ color:#cfe3df; font-size:1.05rem; line-height:1.9; }
+
+/* ===================== بطاقات الأقسام في الرئيسية ===================== */
+.cards-section{ max-width:1100px; margin:0 auto; padding:70px 20px 40px; }
+.section-head{ text-align:center; margin-bottom:40px; }
+.section-head .eyebrow{ color:var(--maroon); }
+.section-head h2{ font-size:clamp(1.7rem, 4vw, 2.3rem); color:var(--emerald-900); margin:6px 0 8px; }
+.section-sub{ color:var(--ink-soft); }
+
+.nav-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  gap:20px;
+}
+.nav-card{
+  background:#fff;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-lg);
+  padding:28px 24px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .18s ease, box-shadow .18s ease;
+  display:block;
+}
+.nav-card:hover{ transform:translateY(-5px); box-shadow:0 20px 36px rgba(6,33,31,.2); }
+.nav-card-icon{ font-size:2.2rem; display:block; margin-bottom:12px; }
+.nav-card h3{ color:var(--emerald-900); font-size:1.25rem; margin-bottom:8px; }
+.nav-card p{ color:var(--ink-soft); font-size:.92rem; line-height:1.7; }
+
+.intro-quote{
+  max-width:640px;
+  margin:20px auto 80px;
+  text-align:center;
+  padding:0 20px;
+}
+.intro-quote blockquote{
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  color:var(--emerald-900);
+  line-height:2;
+  margin:0;
+}
+.intro-quote cite{
+  display:block;
+  font-family:var(--font-body);
+  font-style:normal;
+  font-size:.9rem;
+  color:var(--maroon);
+  margin-top:10px;
+  font-weight:700;
+}
+
+/* ===================== أقسام عامة ===================== */
+.section{ padding:60px 20px; max-width:1100px; margin:0 auto; }
+
+/* ===================== صفحة الغيبيات ===================== */
+.ph-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+  gap:18px;
+}
+.ph-card{
+  background:#fff;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-md);
+  padding:22px;
+  box-shadow:var(--shadow-soft);
+  position:relative;
+}
+.ph-num{
+  position:absolute;
+  top:-12px; left:-12px;
+  background:var(--gold);
+  color:#3a2705;
+  font-weight:800;
+  font-family:var(--font-display);
+  width:32px; height:32px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+.ph-title{ color:var(--emerald-900); font-size:1.1rem; margin-bottom:6px; }
+.ph-ref{ color:var(--maroon); font-size:.82rem; font-weight:700; margin-bottom:10px; }
+.ph-desc{ color:var(--ink-soft); line-height:1.8; font-size:.94rem; }
+
+/* ===================== صفحة القرآن ===================== */
+.surah-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:22px;
+}
+.surah-card{
+  background:#fff;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-lg);
+  padding:26px;
+  box-shadow:var(--shadow-soft);
+}
+.surah-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+.surah-badge{
+  background:var(--emerald-900);
+  color:var(--gold-light);
+  font-family:var(--font-display);
+  font-weight:700;
+  width:42px; height:42px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  font-size:1.1rem;
+}
+.surah-head h3{ color:var(--emerald-900); font-size:1.3rem; }
+.surah-meta{ color:var(--ink-soft); font-size:.82rem; margin-top:2px; }
+.surah-text{
+  font-family:var(--font-display);
+  font-size:1.35rem;
+  line-height:2.4;
+  color:var(--ink);
+  text-align:center;
+  padding:14px 6px;
+  background:var(--parchment);
+  border-radius:var(--radius-sm);
+  margin-bottom:14px;
+}
+.surah-overview{ color:var(--ink-soft); line-height:1.9; margin-bottom:12px; }
+.surah-key{
+  font-family:var(--font-display);
+  font-size:1.15rem;
+  color:var(--maroon);
+  text-align:center;
+  padding:10px;
+  background:var(--parchment);
+  border-radius:var(--radius-sm);
+  margin-bottom:14px;
+}
+.surah-key span{ display:block; font-family:var(--font-body); font-size:.78rem; color:var(--ink-soft); margin-top:6px; font-weight:700; }
+.surah-tafsir{
+  border-top:1px dashed var(--parchment-dark);
+  padding-top:14px;
+}
+.surah-tafsir-label{ font-weight:800; color:var(--emerald-800); font-size:.85rem; margin-bottom:6px; }
+.surah-tafsir p:last-child{ color:var(--ink-soft); line-height:1.85; font-size:.94rem; }
+
+/* ===================== صفحة الشخصيات ===================== */
+.fig-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+  gap:20px;
+}
+.fig-card{
+  background:#fff;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-lg);
+  padding:26px;
+  text-align:center;
+  box-shadow:var(--shadow-soft);
+  transition:transform .18s ease;
+}
+.fig-card:hover{ transform:translateY(-4px); }
+.fig-icon{
+  font-size:2.4rem;
+  width:66px; height:66px;
+  margin:0 auto 14px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--parchment);
+  border-radius:50%;
+}
+.fig-card h3{ color:var(--emerald-900); font-size:1.2rem; margin-bottom:4px; }
+.fig-title{ color:var(--maroon); font-weight:700; font-size:.85rem; margin-bottom:12px; }
+.fig-bio{ color:var(--ink-soft); line-height:1.85; font-size:.92rem; text-align:right; }
+
+/* ===================== صفحة الأسئلة العميقة ===================== */
+.q-list{ display:flex; flex-direction:column; gap:26px; }
+.q-card{
+  background:#fff;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-lg);
+  padding:28px;
+  box-shadow:var(--shadow-soft);
+}
+.q-title{ color:var(--emerald-900); font-size:1.3rem; margin-bottom:18px; line-height:1.6; }
+.q-answers{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:18px;
+}
+.q-answer{
+  padding:16px 18px;
+  border-radius:var(--radius-sm);
+  line-height:1.8;
+  font-size:.94rem;
+}
+.q-sci{ background:#eef4f2; border-inline-start:4px solid var(--emerald-700); color:var(--ink); }
+.q-rel{ background:#faf1e3; border-inline-start:4px solid var(--gold); color:var(--ink); }
+.q-label{ font-weight:800; margin-bottom:8px; font-size:.9rem; }
+.q-sci .q-label{ color:var(--emerald-800); }
+.q-rel .q-label{ color:#8a6512; }
+.q-opinion{
+  border-top:1px dashed var(--parchment-dark);
+  padding-top:16px;
+}
+.q-opinion label{ display:block; font-weight:700; color:var(--ink); margin-bottom:8px; font-size:.92rem; }
+.q-opinion textarea{
+  width:100%;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-sm);
+  padding:12px 14px;
+  font-family:var(--font-body);
+  font-size:.94rem;
+  resize:vertical;
+  color:var(--ink);
+}
+.q-opinion-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+.q-saved-msg{ color:var(--emerald-800); font-weight:700; font-size:.85rem; }
+
+/* ===================== صفحة الترفيه: نصيحة ونكتة ===================== */
+.tip-joke-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.tip-card{
+  background:#fff;
+  border:2px solid var(--parchment-dark);
+  border-radius:var(--radius-lg);
+  padding:30px;
+  text-align:center;
+  box-shadow:var(--shadow-soft);
+}
+.tip-icon{ font-size:2rem; margin-bottom:6px; }
+.tip-card h3{ color:var(--emerald-900); margin-bottom:14px; }
+.tip-text{ color:var(--ink-soft); line-height:1.9; min-height:4.5em; margin-bottom:18px; font-size:1rem; }
+
+/* ===================== الاختبار (الكويز) ===================== */
+.quiz-card{
+  background:var(--emerald-900);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  color:var(--parchment);
+  max-width:620px;
+  margin:0 auto;
+  box-shadow:var(--shadow-soft);
+}
+.quiz-top{ display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+.quiz-progress{ flex:1; height:10px; background:rgba(255,255,255,.15); border-radius:999px; overflow:hidden; }
+.quiz-progress-bar{ height:100%; width:0%; background:linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius:999px; transition:width .35s ease; }
+.quiz-score{ font-weight:800; color:var(--gold-light); white-space:nowrap; }
+.quiz-q-count{ color:#a9c9c3; font-size:.85rem; margin-bottom:6px; }
+.quiz-question{ font-size:1.3rem; line-height:1.6; margin-bottom:20px; min-height:2.2em; }
+.quiz-options{ display:grid; gap:12px; }
+.quiz-opt{
+  text-align:right;
+  background:rgba(255,255,255,.07);
+  border:2px solid rgba(255,255,255,.16);
+  color:var(--parchment);
+  padding:14px 18px;
+  border-radius:var(--radius-sm);
+  font-size:1rem;
+  font-weight:600;
+  transition:background .15s ease;
+}
+.quiz-opt:hover:not(:disabled){ background:rgba(255,255,255,.16); }
+.quiz-opt.correct{ background:rgba(76,175,140,.4); border-color:#4caf8c; }
+.quiz-opt.wrong{ background:rgba(166,69,91,.4); border-color:var(--maroon-light); }
+.quiz-opt:disabled{ cursor:default; }
+.quiz-end{ text-align:center; padding:16px 0; }
+.quiz-end-icon{ font-size:3rem; margin-bottom:10px; }
+.quiz-end h3{ color:var(--gold-light); margin-bottom:8px; }
+.quiz-end p{ color:#cfe3df; margin-bottom:16px; }
+
+/* ===================== لعبة الذاكرة ===================== */
+.memory-wrap{ max-width:560px; margin:0 auto; text-align:center; }
+.memory-board{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+.memory-cell{
+  aspect-ratio:1/1;
+  background:var(--emerald-900);
+  border:none;
+  border-radius:var(--radius-sm);
+  font-size:1.8rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-soft);
+  transition:transform .15s ease;
+}
+.memory-cell:hover{ transform:scale(1.04); }
+.memory-cell.matched{ background:#e9f5f0; opacity:.7; }
+.memory-win{
+  background:#fff;
+  border:2px solid var(--gold);
+  border-radius:var(--radius-md);
+  padding:16px;
+  font-weight:700;
+  color:var(--emerald-900);
+  margin-bottom:18px;
+}
+.game-actions{ display:flex; justify-content:center; gap:14px; }
+
+/* ===================== عنصر التذييل: هل أعجبك موقعي؟ ===================== */
+.site-footer{
+  text-align:center;
+  padding:50px 20px 40px;
+  background:var(--emerald-950);
+  color:#a9c9c3;
+}
+.feedback-widget{
+  max-width:340px;
+  margin:0 auto 26px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(230,200,131,.25);
+  border-radius:var(--radius-lg);
+  padding:26px;
+  min-height:180px;
+}
+.feedback-question{ color:var(--parchment); font-weight:800; font-size:1.1rem; margin-bottom:16px; }
+.feedback-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  align-items:center;
+  position:relative;
+  min-height:100px;
+}
+.feedback-msg{ color:var(--gold-light); font-weight:700; margin-top:14px; min-height:1.4em; font-size:.92rem; }
+.footer-credit{ font-size:.85rem; color:#7fa39c; }
+.footer-credit strong{ color:var(--gold-light); }
+
+/* ===================== الاستجابة للجوال ===================== */
+@media (max-width: 760px){
+  .nav-links{ gap:12px; }
+  .nav-links a{ font-size:.82rem; }
+  .q-answers{ grid-template-columns:1fr; }
+  .tip-joke-grid{ grid-template-columns:1fr; }
+  .memory-board{ grid-template-columns:repeat(4, 1fr); }
+}
+@media (max-width: 480px){
+  .lantern{ font-size:2.6rem; }
+  .quiz-card{ padding:22px; }
+  .surah-card, .q-card{ padding:20px; }
+}
